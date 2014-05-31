@@ -26,6 +26,7 @@
 // these constants won't change:
 const int xPin = 2;		// X output of the accelerometer
 const int yPin = 3;		// Y output of the accelerometer
+const int buzzerPin = 4;     //Input pin of the buzzer (to activate it)
 
 void setup() {
   // initialize serial communications:
@@ -34,7 +35,10 @@ void setup() {
   // as inputs:
   pinMode(xPin, INPUT);
   pinMode(yPin, INPUT);
+  pinMode(buzzerPin, OUTPUT);
 }
+
+void output(bool 
 
 void loop() {
   // variables to read the pulse widths:
