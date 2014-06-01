@@ -51,26 +51,33 @@ int x_sample;
 int y_sample;
 
 //averages
-int x_avg;
-int x_stdev;
-int y_avg;
-int y_stdev;
+double x_avg;
+double x_stdev;
+double y_avg;
+double y_stdev;
+
+//Serial initialization
+int serial_init;
 
 void setup()
 {
-    // initialize serial communications:
-    Serial.begin(9600);
     // initialize the pins connected to the accelerometer
     // as inputs:
     pinMode(xPin, INPUT);
     pinMode(yPin, INPUT);
-
-    signal_proc_init(10, 8);
-
+    // initialize the pin connected to the buzzer
+    pinMode(buzzerPin, OUTPUT);
+    //signal_proc_init(10, 8);
 }
 
 void loop()
-{
+{   
+    // initialize serial communications
+    if (serial_init != 1)
+    {
+      Serial.begin(9600);
+      serial_init = 1;
+    }
     sample_accelerometer();
     signal_proc_tick();
 
@@ -135,8 +142,8 @@ void signal_proc_init(int sampling_rate, int avg_time)
 void signal_proc_tick()
 {
     int i;
-    int sum_x_dev_sq = 0;
-    int sum_y_dev_sq = 0;
+    double sum_x_dev_sq = 0;
+    double sum_y_dev_sq = 0;
 
     sample_buf_index = (sample_buf_index + 1) % sample_buf_len;
 
