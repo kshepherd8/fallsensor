@@ -103,6 +103,10 @@ void sample_accelerometer()
     // print a tab character:
     Serial.print("\t");
     Serial.print(y_sample);
+    Serial.print("\t");
+    Serial.print(x_stdev);
+    Serial.print("\t");
+    Serial.print(y_stdev);
     Serial.println();
 }
 
