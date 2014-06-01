@@ -157,12 +157,12 @@ void signal_proc_tick()
 
     for(i = 0; i <= sample_buf_len; i++)
     {
-        sum_x_dev_sq += (x_avg - x_sample_buf[i])*(x_avg - x_sample_buf[i]);
-        sum_y_dev_sq += (y_avg - y_sample_buf[i])*(y_avg - y_sample_buf[i]);
+        sum_x_dev_sq += abs(x_avg - x_sample_buf[i]);
+        sum_y_dev_sq += abs(y_avg - y_sample_buf[i]);
     }
 
-    x_stdev = sqrt(sum_x_dev_sq/sample_buf_len);
-    y_stdev = sqrt(sum_y_dev_sq/sample_buf_len);
+    x_stdev = sum_x_dev_sq/sample_buf_len;
+    y_stdev = sum_y_dev_sq/sample_buf_len;
 
 }
 
