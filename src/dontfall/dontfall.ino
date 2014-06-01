@@ -27,6 +27,7 @@
 
 const int xPin = 2;		// X output of the accelerometer
 const int yPin = 3;		// Y output of the accelerometer
+const int buzzerPin = 4;     //Input pin of the buzzer (to activate it)
 
 /* THINGS THAT SHOULD BE #defines */
 
