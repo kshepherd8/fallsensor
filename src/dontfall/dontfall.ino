@@ -97,7 +97,6 @@ void sample_accelerometer()
     Serial.print("\t");
     Serial.print(y_sample);
     Serial.println();
-
 }
 
 /*
