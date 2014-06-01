@@ -80,8 +80,22 @@ void loop()
     }
     sample_accelerometer();
     signal_proc_tick();
-
+    evaluate();
     delay(sampling_interval);
+}
+
+void evaluate()
+{
+//  x_stdev
+//  y_stdev
+//  x_avg
+//  y_avg
+  if (x_avg > x_sample + (5 * x_stdev)) {
+    digitalWrite(buzzerPin, HIGH);
+  }
+  else {
+    digitalWrite(buzzerPin, LOW);
+  }
 }
 
 void sample_accelerometer()
