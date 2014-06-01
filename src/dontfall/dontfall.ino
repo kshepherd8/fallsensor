@@ -67,7 +67,7 @@ void setup()
     pinMode(yPin, INPUT);
     // initialize the pin connected to the buzzer
     pinMode(buzzerPin, OUTPUT);
-    //signal_proc_init(10, 8);
+    signal_proc_init(10, 8);
 }
 
 void loop()
